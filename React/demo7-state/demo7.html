@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+        <title>demo7</title>
+    </head>
+    <body>
+        <h1>Demo7: state</h1>
+        <div id="container"></div>
+        <hr />
+        <pre><code>&lt;script type="text/jsx"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;var Hello = React.createClass({
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;getInitialState: function() {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;return {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;flag: true
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };
+&nbsp; &nbsp; &nbsp; &nbsp; },
+&nbsp; &nbsp; &nbsp; &nbsp; doClick: function() {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;this.setState({
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;flag: !this.state.flag
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });
+&nbsp; &nbsp; &nbsp; &nbsp; },
+&nbsp; &nbsp; &nbsp; &nbsp; render: function() {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;return(
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2 onClick={ this.doClick }&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Hello, { this.state.flag.toString() }
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/h2&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; );
+&nbsp; &nbsp; &nbsp; &nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;});
+&nbsp; &nbsp; ReactDOM.render(
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&lt;Hello/&gt;,
+&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById('container')
+&nbsp; &nbsp; );
+&lt;/script&gt;<br></code></pre>
+
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+        <script src="../lib/JSXTransformer.js"></script>
+
+        <script type="text/jsx">
+            var Hello = React.createClass({
+                getInitialState: function() {
+                    return {
+                        flag: true
+                    };
+                },
+                doClick: function() {
+                    this.setState({
+                        flag: !this.state.flag
+                    });
+                },
+                render: function() {
+                    return(
+                        <h2 onClick={ this.doClick }>
+                            Hello, { this.state.flag.toString() }
+                        </h2>
+                    );
+                }
+            });
+            ReactDOM.render(
+                <Hello/>,
+                document.getElementById('container')
+            );
+        </script>
+    </body>
+</html>

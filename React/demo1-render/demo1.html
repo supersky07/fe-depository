@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+        <title>demo1</title>
+    </head>
+    <body>
+        <h1>Demo1: render</h1>
+        <div id="container"></div>
+        <hr />
+        <pre><code>&lt;script type="text/javascript"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;ReactDOM.render(
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;React.createElement("h2", null, "Hello, world!"),
+&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById('container')
+&nbsp; &nbsp; );
+&lt;/script&gt;</code></pre>
+
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+
+        <script type="text/javascript">
+            ReactDOM.render(
+                React.createElement("h2", null, "Hello, world!"),
+                document.getElementById('container')
+            );
+        </script>
+    </body>
+</html>

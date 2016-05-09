@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+        <title>demo10</title>
+    </head>
+    <body>
+        <h1>Demo10: children</h1>
+        <div id="container"></div>
+        <hr />
+        <pre><code>&lt;script type="text/jsx"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;var Hello = React.createClass({
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;render: function() {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;return (
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ this.props.children }
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&lt;/h2&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;);
+&nbsp; &nbsp; &nbsp; &nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;});
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp;&nbsp;ReactDOM.render(
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&lt;Hello&gt;Hello, children！&lt;/Hello&gt;,
+&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById('container')
+&nbsp; &nbsp; );
+&lt;/script&gt;</code></pre>
+
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+        <script src="../lib/JSXTransformer.js"></script>
+
+        <script type="text/jsx">
+            var Hello = React.createClass({
+                render: function() {
+                    return (
+                        <h2>
+                            { this.props.children }
+                        </h2>
+                    );
+                }
+            });
+            
+            ReactDOM.render(
+                <Hello>Hello, children！</Hello>,
+                document.getElementById('container')
+            );
+        </script>
+    </body>
+</html>

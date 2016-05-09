@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+        <title>demo9</title>
+        <style>
+            .test {
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Demo9: inline styles</h1>
+        <div id="container"></div>
+        <hr />
+        <pre><code>&lt;script type="text/jsx"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;var h1Style = {
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;color: 'red',
+&nbsp; &nbsp; &nbsp; &nbsp; backgroundColor: '#ccc',
+&nbsp; &nbsp; &nbsp; &nbsp; WebkitTransition: 'all',
+&nbsp; &nbsp; &nbsp; &nbsp; msTransition: 'all'
+&nbsp; &nbsp; };
+
+&nbsp; &nbsp; var Hello = React.createClass({
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;render: function() {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;return &lt;h2 style={ h1Style } className="test"&gt;Hello, inline styles！&lt;/h2&gt;;
+&nbsp; &nbsp; &nbsp; &nbsp; }
+&nbsp; &nbsp; });
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; ReactDOM.render(
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&lt;Hello /&gt;,
+&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById('container')
+&nbsp; &nbsp; );
+&lt;/script&gt;<br></code></pre>
+        
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+        <script src="../lib/JSXTransformer.js"></script>
+
+        <script type="text/jsx">
+            var h1Style = {
+                color: 'red',
+                backgroundColor: '#ccc',
+                WebkitTransition: 'all',
+                msTransition: 'all'
+            };
+
+            var Hello = React.createClass({
+                render: function() {
+                    return <h2 style={ h1Style } className="test">Hello, inline styles！</h2>;
+                }
+            });
+            
+            ReactDOM.render(
+                <Hello />,
+                document.getElementById('container')
+            );
+        </script>
+    </body>
+</html>

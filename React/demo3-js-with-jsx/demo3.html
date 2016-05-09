@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+        <title>demo3</title>
+    </head>
+    <body>
+        <h1>Demo3: jsx with javascript </h1>
+        <div id="container"></div>
+        <hr />
+        <pre><code>&lt;script type="text/jsx"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;var hello = "Hello, JSX with Javascript!";
+&nbsp; &nbsp; ReactDOM.render(
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;{ hello }&lt;/h2&gt;,
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('container')
+&nbsp; &nbsp;&nbsp;);
+&lt;/script&gt;<br></code></pre>
+
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+        <script src="../lib/JSXTransformer.js"></script>
+
+        <script type="text/jsx">
+            var hello = "Hello, JSX with Javascript!";
+            ReactDOM.render(
+                <h2>{ hello }</h2>,
+                document.getElementById('container')
+            );
+        </script>
+    </body>
+</html>

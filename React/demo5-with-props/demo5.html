@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+        <title>demo5</title>
+    </head>
+    <body>
+        <h1>Demo5: component with props</h1>
+        <div id="container"></div>
+        <hr />
+        <pre><code>&lt;script type="text/jsx"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;var Hello = React.createClass({
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;propTypes: {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;name: React.PropTypes.string.isRequired
+&nbsp; &nbsp; &nbsp; &nbsp; },
+&nbsp; &nbsp; &nbsp; &nbsp; render: function() {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;var hello = "Hello, " + this.props.name;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return &lt;h2&gt;{ hello }&lt;/h2&gt;;
+&nbsp; &nbsp; &nbsp; &nbsp; }
+&nbsp; &nbsp; });
+&nbsp; &nbsp; ReactDOM.render(
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&lt;Hello name="component with props"/&gt;,
+&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById('container')
+&nbsp; &nbsp; );
+&lt;/script&gt;<br></code></pre>
+
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+        <script src="../lib/JSXTransformer.js"></script>
+
+        <script type="text/jsx">
+            var Hello = React.createClass({
+                propTypes: {
+                    name: React.PropTypes.string.isRequired
+                },
+                render: function() {
+                    var hello = "Hello, " + this.props.name;
+                    return <h2>{ hello }</h2>;
+                }
+            });
+            ReactDOM.render(
+                <Hello name="component with props"/>,
+                document.getElementById('container')
+            );
+        </script>
+    </body>
+</html>
