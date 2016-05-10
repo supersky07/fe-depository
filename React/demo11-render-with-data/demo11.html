@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+        <title>demo11</title>
+    </head>
+    <body>
+        <h1>Demo11: render with data</h1>
+        <div id="container"></div>
+        <hr />
+        <p>&lt;script type="text/jsx"&gt;</p><p>&nbsp; &nbsp; var tempData = [</p><p>&nbsp; &nbsp; &nbsp; &nbsp; {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; age: 11,</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name: 'LiLei',</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sex: 'male'</p><p>&nbsp; &nbsp; &nbsp; &nbsp; },</p><p>&nbsp; &nbsp; &nbsp; &nbsp; {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; age: 10,</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name: 'HanMeimei',</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sex: 'femail'</p><p>&nbsp; &nbsp; &nbsp; &nbsp; }</p><p>&nbsp; &nbsp; ];</p><p>&nbsp; &nbsp; var Item = React.createClass({</p><p>&nbsp; &nbsp; &nbsp; &nbsp; render: function() {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return (</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label&gt;{ this.props.labelTxt }：&lt;/label&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span&gt;{ this.props.content }&lt;/span&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; );</p><p>&nbsp; &nbsp; &nbsp; &nbsp; }</p><p>&nbsp; &nbsp; });</p><p>&nbsp; &nbsp; var Card = React.createClass({</p><p>&nbsp; &nbsp; &nbsp; &nbsp; render: function() {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var info = this.props.info;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return (</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div style={{ borderBottom: 'dotted 1px #000', marginTop: '10px' }}&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Item labelTxt='姓名' content={ info.name } /&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Item labelTxt='年龄' content={ info.age } /&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Item labelTxt='性别' content={ info.sex } /&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; );</p><p>&nbsp; &nbsp; &nbsp; &nbsp; }</p><p>&nbsp; &nbsp; });</p><p>&nbsp; &nbsp; var Hello = React.createClass({</p><p>&nbsp; &nbsp; &nbsp; &nbsp; render: function() {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var dataList = this.props.data;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var list = [];</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; for (var i = 0, len = dataList.length; i &lt; len; i++) {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; list.push(&lt;Card info={ dataList[i] } /&gt;);</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return &lt;div&gt;{ list }&lt;/div&gt;;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; }</p><p>&nbsp; &nbsp; });</p><p>&nbsp; &nbsp; ReactDOM.render(</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;Hello data={ tempData } /&gt;,</p><p>&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById('container')</p><p>&nbsp; &nbsp; );</p><p>&lt;/script&gt;</p>
+
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+        <script src="../lib/JSXTransformer.js"></script>
+
+        <script type="text/jsx">
+            // 模拟数据。传递给Hello
+            var tempData = [
+                {
+                    age: 11,
+                    name: 'LiLei',
+                    sex: 'male'
+                },
+                {
+                    age: 10,
+                    name: 'HanMeimei',
+                    sex: 'femail'
+                }
+            ];
+
+            var Item = React.createClass({
+                render: function() {
+                    return (
+                        <div>
+                            <label>{ this.props.labelTxt }：</label>
+                            <span>{ this.props.content }</span>
+                        </div>
+                    );
+                }
+            });
+
+            var Card = React.createClass({
+                render: function() {
+                    var info = this.props.info;
+
+                    return (
+                        <div style={{ borderBottom: 'dotted 1px #000', marginTop: '10px' }}>
+                            <Item labelTxt='姓名' content={ info.name } />
+                            <Item labelTxt='年龄' content={ info.age } />
+                            <Item labelTxt='性别' content={ info.sex } />
+                        </div>
+                    );
+                }
+            });
+
+            var Hello = React.createClass({
+                render: function() {
+                    var dataList = this.props.data;
+                    var list = [];
+
+                    for (var i = 0, len = dataList.length; i < len; i++) {
+                        list.push(<Card info={ dataList[i] } />);
+                    }
+
+                    return <div>{ list }</div>;
+                }
+            });
+
+            ReactDOM.render(
+                <Hello data={ tempData } />,
+                document.getElementById('container')
+            );
+        </script>
+    </body>
+</html>

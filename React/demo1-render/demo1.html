@@ -20,7 +20,9 @@
 
         <script type="text/javascript">
             ReactDOM.render(
-                React.createElement("h2", null, "Hello, world!"),
+                React.createElement("h2", null,
+                    React.createElement("span", null ,
+                        "Hello World")),
                 document.getElementById('container')
             );
         </script>
